@@ -60,20 +60,20 @@ async function getRecipes() {
     return JSON.parse(recipes);
   }
 
-  recipes = []; // A2
-  return new Promise(async (resolve, reject) => { // A3
-    for (let url of RECIPE_URLS) { // A4
-      try { // A5
-        let response = await fetch(url); // A6
-        let recipe = await response.json(); // A7
-        recipes.push(recipe); // A8
-        if (recipes.length === RECIPE_URLS.length) { // A9
+  recipes = []; 
+  return new Promise(async (resolve, reject) => { 
+    for (let url of RECIPE_URLS) { 
+      try { 
+        let response = await fetch(url); 
+        let recipe = await response.json(); 
+        recipes.push(recipe); 
+        if (recipes.length === RECIPE_URLS.length) { 
           saveRecipesToStorage(recipes);
           resolve(recipes);
         }
-      } catch (err) { // A10
+      } catch (err) { 
         console.error(err);
-        reject(err); // A11
+        reject(err); 
       }
     }
   });
