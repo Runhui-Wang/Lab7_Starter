@@ -33,6 +33,7 @@ async function init() {
  * of installing it and getting it running
  */
 function initializeServiceWorker() {
+  
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js')
